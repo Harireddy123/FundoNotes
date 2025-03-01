@@ -1,0 +1,13 @@
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.csproj.AssemblyReference.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.AssemblyInfoInputs.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.AssemblyInfo.cs
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\bin\Debug\netcoreapp3.1\FudoNotes.Bussiness.deps.json
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\bin\Debug\netcoreapp3.1\FudoNotes.Bussiness.dll
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\bin\Debug\netcoreapp3.1\FudoNotes.Bussiness.pdb
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\bin\Debug\netcoreapp3.1\FundoNotes.Data.dll
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\bin\Debug\netcoreapp3.1\FundoNotes.Data.pdb
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNote.D93EA2C9.Up2Date
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.dll
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FudoNotes.Bussiness\obj\Debug\netcoreapp3.1\FudoNotes.Bussiness.pdb

@@ -1,0 +1,13 @@
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.csproj.AssemblyReference.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.AssemblyInfoInputs.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.AssemblyInfo.cs
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.csproj.CoreCompileInputs.cache
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\bin\Debug\netcoreapp3.1\FundoNotes.Data.deps.json
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\bin\Debug\netcoreapp3.1\FundoNotes.Data.runtimeconfig.json
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\bin\Debug\netcoreapp3.1\FundoNotes.Data.runtimeconfig.dev.json
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\bin\Debug\netcoreapp3.1\FundoNotes.Data.dll
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\bin\Debug\netcoreapp3.1\FundoNotes.Data.pdb
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.dll
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.pdb
+C:\Users\acer\Desktop\BasicPrograms\FundoNotes\FundoNotes.Data\obj\Debug\netcoreapp3.1\FundoNotes.Data.genruntimeconfig.cache

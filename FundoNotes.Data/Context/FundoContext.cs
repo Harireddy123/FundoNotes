@@ -11,5 +11,7 @@ namespace RepositoryLayer.Context
     {
         public FundoContext(DbContextOptions<FundoContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
+        public DbSet<NotesEntity> Notestable { get; set; }
+
     }
 }

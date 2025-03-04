@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using BussinessLayer.Interface;
+using BussinessLayer.Service;
 using FudoNotes.Bussiness.Interface;
 using FudoNotes.Bussiness.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -59,8 +61,10 @@ namespace FundoNotes
 
             services.AddTransient<IUserRL, UserRL>();
             services.AddTransient<IUserBL, UserBL>();
+            services.AddTransient<INotesRL, NotesRL>();
+            services.AddTransient<INotesBL, NotesBL>();
             // to register email and password to DI container 
-            
+
 
 
             // Adding Authentication

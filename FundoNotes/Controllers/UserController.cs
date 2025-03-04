@@ -1,6 +1,5 @@
 ﻿using FudoNotes.Bussiness.Interface;
 using FundoNotes.Data.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Models;
@@ -19,7 +18,7 @@ namespace FundoNotes.Controllers
             _userManager = userManager;
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         public IActionResult Register(RegisterModel model)
         {
             try
@@ -66,11 +65,6 @@ namespace FundoNotes.Controllers
             }
         }
 
-        [Authorize]
-        [HttpGet]
-        public IActionResult GetSecureData()
-        {
-            return Ok(new { Message = "This is a secure endpoint." });
-        }
+        
     }
 }

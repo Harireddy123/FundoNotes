@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using RepositoryLayer.Helpers;
+using RepositoryLayer.Models;
 
 namespace RepositoryLayer.Service
 {
@@ -95,7 +96,63 @@ namespace RepositoryLayer.Service
             }
         }
 
+        public ForgetPasswordModel ForgetPassword(string email)
+        {
+            try
+            {
+                var user = GetUserByEmail(email);
+                if (user == null)
+                    throw new Exception("User does not exist for the requested email");
 
-        
+                return new ForgetPasswordModel
+                {
+                    UserId = user.Id,
+                    Email = user.Email,
+                    Token = GenerateToken(user.Email, user.Id)
+                };
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error processing forgot password request", ex);
+            }
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            try
+            {
+                return _dbContext.Users.FirstOrDefault(user => user.Email == email);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving user by email", ex);
+            }
+        }
+
+        public bool ResetPassword(string email, ResetPasswordModel resetPasswordModel)
+        {
+            try
+            {
+                var user = GetUserByEmail(email);
+                if (user == null)
+                    throw new Exception("User not found");
+
+                if (resetPasswordModel.NewPassword != resetPasswordModel.ConfirmPassword)
+                    throw new Exception("Password mismatch");
+
+                user.Password = UserHelpers.EncodePassword(resetPasswordModel.NewPassword);
+                _dbContext.Users.Update(user);
+                _dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error resetting password", ex);
+            }
+        }
+
+
+
+
     }
 }

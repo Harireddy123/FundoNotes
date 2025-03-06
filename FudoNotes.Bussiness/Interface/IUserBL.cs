@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using FundoNotes.Data.Models;
 using RepositoryLayer.Entity;
+using RepositoryLayer.Models;
 
 namespace FudoNotes.Bussiness.Interface
 {
@@ -14,6 +12,8 @@ namespace FudoNotes.Bussiness.Interface
         public string Login(LoginModel model);
 
         public bool EmailExists(string email);
+        ForgetPasswordModel ForgetPassword(string email);
+        public bool ResetPassword(string email, ResetPasswordModel model);
 
     }
 }

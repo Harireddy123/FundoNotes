@@ -109,7 +109,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/3.0.0": {
+      "Microsoft.Data.SqlClient/3.0.1": {
         "type": "package",
         "dependencies": {
           "Azure.Identity": "1.3.0",
@@ -643,6 +643,19 @@
           "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll": {
             "assetType": "runtime",
             "rid": "win"
+          }
+        }
+      },
+      "NLog/5.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "related": ".xml"
           }
         }
       },
@@ -1270,10 +1283,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/3.0.0": {
-      "sha512": "MUauWfCLsZQQMUR/wZhec5MH6+NTPmPp9i/OsjIMmIu2ICYUGOVm1x7RTqKxq19UWxXMSG03/O0FyXQJrpDs9A==",
+    "Microsoft.Data.SqlClient/3.0.1": {
+      "sha512": "5Jgcds8yukUeOHvc8S0rGW87rs2uYEM9/YyrYIb/0C+vqzIa2GiqbVPCDVcnApWhs67OSXLTM7lO6jro24v/rA==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/3.0.0",
+      "path": "microsoft.data.sqlclient/3.0.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1303,7 +1316,7 @@
         "lib/netstandard2.1/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.pdb",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.3.0.0.nupkg.sha512",
+        "microsoft.data.sqlclient.3.0.1.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net461/Microsoft.Data.SqlClient.dll",
         "ref/net461/Microsoft.Data.SqlClient.pdb",
@@ -1929,6 +1942,30 @@
         "runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "NLog/5.4.0": {
+      "sha512": "LwMcGSW3soF3/SL68rlJN3Eh3ktrAPycC3zZR/07OYBPraZUu0bygEC7kIN10lUQgMXT4s84Fi1chglGdGrQEg==",
+      "type": "package",
+      "path": "nlog/5.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "N.png",
+        "lib/net35/NLog.dll",
+        "lib/net35/NLog.xml",
+        "lib/net45/NLog.dll",
+        "lib/net45/NLog.xml",
+        "lib/net46/NLog.dll",
+        "lib/net46/NLog.xml",
+        "lib/netstandard1.3/NLog.dll",
+        "lib/netstandard1.3/NLog.xml",
+        "lib/netstandard1.5/NLog.dll",
+        "lib/netstandard1.5/NLog.xml",
+        "lib/netstandard2.0/NLog.dll",
+        "lib/netstandard2.0/NLog.xml",
+        "nlog.5.4.0.nupkg.sha512",
+        "nlog.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/5.6.3": {
@@ -2739,11 +2776,12 @@
       "BCrypt.Net-Next >= 4.0.3",
       "BussinessLayer >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.20",
-      "Microsoft.Data.SqlClient >= 3.0.0",
+      "Microsoft.Data.SqlClient >= 3.0.1",
       "Microsoft.EntityFrameworkCore >= 3.1.32",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.32",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.32",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.32",
+      "NLog >= 5.4.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
@@ -2811,7 +2849,7 @@
           },
           "Microsoft.Data.SqlClient": {
             "target": "Package",
-            "version": "[3.0.0, )"
+            "version": "[3.0.1, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -2832,6 +2870,10 @@
             "suppressParent": "All",
             "target": "Package",
             "version": "[3.1.32, )"
+          },
+          "NLog": {
+            "target": "Package",
+            "version": "[5.4.0, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -2866,7 +2908,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.Data.SqlClient' 3.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "message": "Package 'Microsoft.Data.SqlClient' 3.0.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
       "libraryId": "Microsoft.Data.SqlClient",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"

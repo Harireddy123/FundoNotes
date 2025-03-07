@@ -2,6 +2,7 @@
 using FundoNotes.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NLog;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Models;
 using System;
@@ -15,10 +16,13 @@ namespace FundoNotes.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserBL _userManager;
+        private readonly ILogger _logger;
 
         public UserController(IUserBL userManager)
         {
             _userManager = userManager;
+            _logger = LogManager.GetCurrentClassLogger();
+
         }
 
         [HttpPost]
@@ -26,6 +30,7 @@ namespace FundoNotes.Controllers
         {
             try
             {
+                _logger.Info("Register User started");
                 if (model == null)
                     return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid registration details provided" });
 
@@ -36,13 +41,15 @@ namespace FundoNotes.Controllers
 
                 if (result != null)
                 {
-                    
+                    _logger.Info($"User registration successful for email: {model.Email}");
                     return Ok(new ResponseModel<User> { Success = true, Message = "Registered successfully", Data = result });
                 }
+                _logger.Warn($"Registration failed for email: {model.Email}");
                 return BadRequest(new ResponseModel<User> { Success = false, Message = "Registration failed" });
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, $"Error during user registration: {ex.Message}");
                 return StatusCode(500, new ResponseModel<string> { Success = false, Message = "An internal error occurred", Data = ex.Message });
             }
         }
@@ -52,18 +59,22 @@ namespace FundoNotes.Controllers
         {
             try
             {
+                _logger.Info("Login attempt started");
                 if (model == null)
                     return BadRequest(new ResponseModel<string> { Success = false, Message = "Invalid login details" });
 
                 var result = _userManager.Login(model);
                 if (result != null)
                 {
+                    _logger.Info($"Login successful for user: {model.Email}");
                     return Ok(new ResponseModel<string> { Success = true, Message = "Login successful", Data = result });
                 }
+                _logger.Warn($"Failed login attempt for user: {model.Email}");
                 return Unauthorized(new ResponseModel<string> { Success = false, Message = "Invalid email or password" });
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, $"Error during login: {ex.Message}");
                 return StatusCode(500, new ResponseModel<string> { Success = false, Message = "An internal error occurred", Data = ex.Message });
             }
         }
@@ -73,12 +84,14 @@ namespace FundoNotes.Controllers
         {
             try
             {
+                _logger.Info($"Password reset requested for email: {email}");
                 if (string.IsNullOrWhiteSpace(email))
                     return BadRequest(new ResponseModel<string> { Success = false, Message = "Email is required" });
 
                 ForgetPasswordModel forgotPasswordModel = _userManager.ForgetPassword(email);
                 if (forgotPasswordModel == null)
                 {
+                    _logger.Warn($"Password reset failed - user not found for email: {email}");
                     return BadRequest(new ResponseModel<string> { Success = false, Message = "User with this email does not exist" });
                 }
 
@@ -86,16 +99,15 @@ namespace FundoNotes.Controllers
                 Send send = new Send();
                 send.SendMail(forgotPasswordModel.Email, forgotPasswordModel.Token);
 
-                
-
+                _logger.Info($"Password reset email sent successfully to: {email}");
                 return Ok(new { Success = true, Message = "Password reset email sent successfully" });
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, $"Error during password reset request: {ex.Message}");
                 return StatusCode(500, new ResponseModel<string> { Success = false, Message = "An error occurred while processing your request", Data = ex.Message });
             }
         }
-
         [Authorize]
         [HttpPost("resetpassword")]
         public IActionResult ResetPassword(ResetPasswordModel request)
@@ -106,22 +118,27 @@ namespace FundoNotes.Controllers
 
                 if (email == null)
                 {
+                    _logger.Warn("Password reset attempted with invalid or expired token");
                     return BadRequest(new { success = false, message = "Invalid or expired token" });
                 }
 
+                _logger.Info($"Password reset attempt for user: {email}");
                 var result = _userManager.ResetPassword(email, request);
 
                 if (result)
                 {
+                    _logger.Info($"Password reset successful for user: {email}");
                     return Ok(new { success = true, message = "Password reset successful" });
                 }
                 else
                 {
+                    _logger.Warn($"Password reset failed for user: {email}");
                     return BadRequest(new { success = false, message = "Password reset unsuccessful" });
                 }
             }
             catch (Exception ex)
             {
+                _logger.Error(ex, $"Error during password reset: {ex.Message}");
                 return StatusCode(500, new { success = false, message = "An error occurred while resetting the password. Please try again later.", Data = ex.Message });
             }
         }

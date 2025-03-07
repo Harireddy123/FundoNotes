@@ -15,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using RepositoryLayer.Context;
 using RepositoryLayer.Interface;
+using RepositoryLayer.Models;
 using RepositoryLayer.Service;
 
 namespace FundoNotes
@@ -63,7 +64,9 @@ namespace FundoNotes
             services.AddTransient<IUserBL, UserBL>();
             services.AddTransient<INotesRL, NotesRL>();
             services.AddTransient<INotesBL, NotesBL>();
-            // to register email and password to DI container 
+            services.AddTransient<ILabelRL, LabelRL>();
+            services.AddTransient<ILabelBL, LabelBL>();
+
 
 
 
@@ -98,21 +101,28 @@ namespace FundoNotes
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();  
+            app.UseAuthentication();
 
-            app.UseAuthentication();  
-            app.UseAuthorization(); 
+            app.UseHttpsRedirection();
 
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "FundoNotes API V1");
-            });
+            app.UseRouting();
+
+            app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+
+            // This middleware serves generated Swagger document as a JSON endpoint
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "FundoNotes API V1");
+            });
+
         }
     }
 }

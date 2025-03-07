@@ -226,7 +226,7 @@
             },
             "Microsoft.Data.SqlClient": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -247,6 +247,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.32, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.4.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
